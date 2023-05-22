@@ -1,15 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import { NavBar } from './components/Navbar';
+import { Navbar } from './components/Navbar';
 
 function App() {
     return (
         <>
             <Navbar />
             <Routes>
-                <Route path="/" element={<HomePage />} />
-                    <Route path="/weather" />
-                    <Route path="/lunar" />
-                    <Route path="/tides" />
+                <Route path="/" element={<Homepage />}>
+                    <Route path="tides" />
+                    <Route path="weather" />
+                    <Route path="lunar" />
                 </Route>
             </Routes>
         </>
