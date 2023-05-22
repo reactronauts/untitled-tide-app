@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { LunarPage } from "./pages/LunarPage";
 
 function App() {
     return (
@@ -7,7 +8,7 @@ function App() {
                 <Route path="/">
                     <Route path="tides" />
                     <Route path="weather" />
-                    <Route path="lunar" />
+                    <Route path="lunar" element={<LunarPage />} />
                 </Route>
             </Routes>
         </>
