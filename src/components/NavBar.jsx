@@ -1,14 +1,17 @@
 import { NavLink } from "react-router-dom";
+// import { Searchbar } from "../components/Searchbar";
 
-export function Navbar(props){
+
+export function Navbar(){
     let activeNavStyle = {
-        textDecorationColor: "green",
+        textDecorationColor: "darkblue",
         textDecorationLine: "line-through"
     }
 
     return(
-        <nav>
-            <ul>
+        <nav className="justify-center">
+            {/* <Searchbar /> */}
+            <ul className="flex px-4 py-6 text-center w-screen justify-around self-end ml-1/2 bg-orange-700">
                 <li>
                     <NavLink to="/" style={({isActive}) => isActive ? activeNavStyle : undefined}>
                         Home
@@ -21,12 +24,12 @@ export function Navbar(props){
                 </li>
                 <li>
                     <NavLink to="/lunar" style={({isActive}) => isActive ? activeNavStyle : undefined}>
-                        Astro
+                        Lunar
                     </NavLink>
                 </li>
                 <li>
                     <NavLink to="/tides" style={({isActive}) => isActive ? activeNavStyle : undefined}>
-                        Tidal
+                        Tides
                     </NavLink>
                 </li>
                 
