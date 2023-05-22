@@ -22,9 +22,10 @@ html, body {
     width: 400px;
     padding: 30px;
     border-radius: 10px;
+    border: solid 1px;
     text-align: center;
     color: white;
-    background: linear-gradient(130deg, rgb(103, 103, 232), rgb(44, 44, 174));
+    /* background: linear-gradient(130deg, rgb(103, 103, 232), rgb(44, 44, 174)); */
 }
 
 .search {

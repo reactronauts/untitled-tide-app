@@ -1,7 +1,7 @@
 import React from 'react';
-import WeatherContent from '../components/weatherContent'; 
+import WeatherContent from '../components/WeatherContent'; 
 
-const Weather = () => {
+const WeatherPage = () => {
   return (
     <>
       <WeatherContent />
@@ -9,5 +9,5 @@ const Weather = () => {
   );
 };
 
-export default Weather;
+export default WeatherPage;
 
