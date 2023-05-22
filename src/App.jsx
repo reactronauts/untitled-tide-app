@@ -5,9 +5,9 @@ function App() {
         <>
             <Routes>
                 <Route path="/">
-                    <Route path="/geo" />
-                    <Route path="/weather" />
-                    <Route path="/lunar" />
+                    <Route path="tides" />
+                    <Route path="weather" />
+                    <Route path="lunar" />
                 </Route>
             </Routes>
         </>
