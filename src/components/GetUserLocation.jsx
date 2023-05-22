@@ -9,14 +9,16 @@ export function GetUserLocation() {
 
     const userLocation = async() => {
         window.navigator.geolocation.getCurrentPosition(
-            success => setLocation({latitude: success.coords.latitude}),
+            success => setLocation({latitude: success.coords.latitude, longitude: success.cooqrds.longitude}),
             error => console.log(error)
         ) 
     }
 
     return(
         <div>
-            <p>location: {location.latitude}</p>
+            <p>location:</p>
+            <p>Latitude: {location.latitude}</p>
+            <p>Longitude: {location.longitude}</p>
         </div>   
     )
 }
