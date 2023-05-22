@@ -4,6 +4,7 @@ import TopButtons from '../components/TopButtons';
 import Inputs from '../components/Inputs';
 import TimeAndLocation from '../components/TimeAndLocation';
 import TemperatureAndDetails from '../components/TemperatureAndDetails';
+import Forecast from '../components/Forecast';
 
 const WeatherPage = () => {
   return (
@@ -13,6 +14,9 @@ const WeatherPage = () => {
 
       <TimeAndLocation />
       <TemperatureAndDetails />
+
+      <Forecast title="hourly forecast"/>
+      <Forecast title="daily forecast"/>
     </div>
   );
 };
