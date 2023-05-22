@@ -6,9 +6,9 @@ function App() {
         <>
             <Routes>
                 <Route path="/">
-                    <Route path="/geo" />
-                    <Route path="/weather" element={<WeatherPage />}/>
-                    <Route path="/lunar" />
+                    <Route path="tides" />
+                    <Route path="weather" element={<WeatherPage />}/>
+                    <Route path="lunar" />
                 </Route>
             </Routes>
         </>
