@@ -4,16 +4,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        // default: {
-        //   text: '#023047', // Default text color
-        //   background: '#219EBC', // Default background color
-        //   button: '#FB8500', // Default button color
-        // },
-        // dark: {
-        //   text: '#0A121B', // Dark mode text color
-        //   background: '#7F3100', // Dark mode background color
-        //   button: '#345F8A', // Dark mode button color
-        // },
           'light-blue': '#219EBC',
           'dark-blue': '#023047',
           'yellow': '#FFB703',
@@ -22,8 +12,11 @@ export default {
           'dm-db': '#0A121B',
           'dm-y': '#854500',
           'dm-o': '#7F3100',
-        },
-      },
+          'custom-green': 'rgb(204,228,218)',
+          'custom-purple': 'rgb(146,179,243)',
+          'custom-black': 'rgb(10,13,16)'
+      }
+    },
     },
   plugins: [],
 };
