@@ -13,7 +13,7 @@ function TemperatureAndDetails({ data }) {
   return (
     <div className=''>
         <div className='flex items-center justify-center py-6 text-xl text-white'>
-            <p>Cloudy</p>
+            <p>{data.description}</p>
         </div>
         <div className='flex flex-row items-center justify-between text-white py-3'>
             <img 
