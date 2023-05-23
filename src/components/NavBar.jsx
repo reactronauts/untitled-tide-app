@@ -1,17 +1,16 @@
 import { NavLink } from "react-router-dom";
 // import { Searchbar } from "../components/Searchbar";
 
-
 export function Navbar(){
     let activeNavStyle = {
-        textDecorationColor: "darkblue",
+        textDecorationColor: "white",
         textDecorationLine: "line-through"
     }
 
     return(
-        <nav className="justify-center">
+        <nav className="justify-center" >
             {/* <Searchbar /> */}
-            <ul className="flex px-4 py-6 text-center w-screen justify-around self-end ml-1/2 bg-orange-700">
+            <ul className="flex px-4 py-6 text-center w-screen justify-around self-end ml-1/2 bg-orange-100	 ">
                 <li>
                     <NavLink to="/" style={({isActive}) => isActive ? activeNavStyle : undefined}>
                         Home
@@ -35,5 +34,5 @@ export function Navbar(){
                 
             </ul>
         </nav>
-    )
+    );
 }

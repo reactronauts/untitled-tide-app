@@ -1,4 +1,5 @@
 import { Header } from "../components/header";
+// import { DefaultLocationTiles } from "../components/DefaultLocationTiles";
 // import { Searchbar } from "../components/Searchbar";
 
 export function HomePage(){
@@ -6,13 +7,9 @@ export function HomePage(){
         <div className="bg-sky-200/25 w-screen h-screen">
             <Header />
             <div className="flex justify-center text-5xl">
-                Astra Mar
+                moonSwell
             </div> 
-
-            <div>
-                
-            </div>
-
+            {/* <DefaultLocationTiles /> */}
 
         </div>
        
