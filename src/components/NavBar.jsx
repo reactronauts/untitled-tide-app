@@ -7,7 +7,8 @@ import { DarkMode } from "./DarkMode";
 
 export function Navbar(){
     let activeNavStyle = {
-        textDecorationColor: "white",
+        color: "white",
+        // textDecorationLine: "underline",
         fontStyle: "italic"
     }
 
