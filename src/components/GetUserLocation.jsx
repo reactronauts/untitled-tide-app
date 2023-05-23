@@ -12,10 +12,7 @@ export function GetUserLocation() {
 
     return(
         <div>
-            <p>location:</p>
-            <p>Latitude: {location.latitude}</p>
-            <p>Longitude: {location.longitude}</p>
-            <button onClick={handleLocationShare} className='border-2 p-1'>Share your location?</button>
+            <button onClick={handleLocationShare} className='border-2 p-1 rounded-full bg-#219EBC shadow-md border-solid border hover:border-solid hover:border-2 p-2'>Share Your Current Location</button>
         </div>   
     )
 }
