@@ -4,7 +4,7 @@ import { Header } from "../components/header";
 
 export function HomePage(){
     return(
-        <div className="bg-sky-200/25 w-screen h-screen">
+        <div className="bg-light-blue w-screen h-screen">
             <Header />
             <div className="flex justify-center text-5xl ">
                 moonSwell

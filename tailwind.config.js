@@ -7,7 +7,7 @@ export default {
         'light-blue': '#219EBC',
         'dark-blue': '#023047',
         'yellow': '#FFB703',
-        'orange': '#F8500',
+        'orange': '#FB8500',
         'dm-lb': '#1E4152',
         'dm-db': '#0A121B',
         'dm-y': '#854500',

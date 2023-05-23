@@ -10,7 +10,7 @@ export function Navbar(){
     return(
         <nav className="justify-center" >
             {/* <Searchbar /> */}
-            <ul className="flex px-4 py-6 text-center w-screen justify-around self-end ml-1/2 bg-orange-100	 ">
+            <ul className="flex px-4 py-6 text-center w-screen justify-around self-end ml-1/2">
                 <li>
                     <NavLink to="/" style={({isActive}) => isActive ? activeNavStyle : undefined}>
                         Home
