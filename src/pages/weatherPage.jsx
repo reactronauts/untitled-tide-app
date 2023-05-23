@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Inputs from '../components/Inputs';
 import TimeAndLocation from '../components/TimeAndLocation';
@@ -20,6 +20,20 @@ const WeatherPage = () => {
   })
 
   const [name, setName] = useState('');
+
+  useEffect(() => {
+    if (data && data.coord) {
+      const fetchTimeZone = async () => {
+        const { data: timeZoneData } = await axios.get(`https://maps.googleapis.com/maps/api/timezone/json?location=${data.coord.lat},${data.coord.lon}&timestamp=${Math.floor(Date.now() / 1000)}&key=AIzaSyAfwhFgTO3jlmRMSWRqtO1kMFXLwFqbzww`);
+        setData(prevData => ({
+          ...prevData,
+          timeZoneId: timeZoneData.timeZoneId
+        }));
+      };
+
+      fetchTimeZone();
+    }
+  }, [data]);
 
   const handleClick = () => {
     if(name !== "") {
@@ -53,7 +67,8 @@ const WeatherPage = () => {
             humidity: res.data.main.humidity, 
             wind: res.data.wind.speed, 
             image: imagePath,
-            description: weatherDescription
+            description: weatherDescription,
+            coord: res.data.coord // You need to include this
           })
         })
         .catch(err => console.log(err))
@@ -66,15 +81,16 @@ const WeatherPage = () => {
   }
 
   return ( 
-    <div className='mx-auto max-w-screen-md mt-4 py-5 px-32 bg-custom-purple h-fit shadow-xl rounded-xl shadow-gray-400'>
+    <div className='mx-auto max-w-screen-md mt-4 py-5 px-32 bg-custom-purple h-fit rounded-xl shadow-gray-400'>
       <Inputs handleSubmit={handleSubmit} setName={setName} />
-      <TimeAndLocation data={data} />
-      <TemperatureAndDetails data={data} />
+      {data && <TimeAndLocation data={data} />}
+      {data && <TemperatureAndDetails data={data} />}
     </div>
   );
 };
 
 export default WeatherPage;
+
 
 
 
