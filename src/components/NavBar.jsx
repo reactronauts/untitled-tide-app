@@ -3,14 +3,14 @@ import { NavLink } from "react-router-dom";
 
 export function Navbar(){
     let activeNavStyle = {
-        textDecorationColor: "orange",
-        textDecorationLine: "line-through"
+        textDecorationColor: "white",
+        fontStyle: "italic"
     }
 
     return(
         <nav className="justify-center" >
             {/* <Searchbar /> */}
-            <ul className="flex px-4 py-6 text-center w-screen justify-around self-end ml-1/2">
+            <ul className="flex px-4 py-6 text-center w-screen justify-around self-end ml-1/2 text-xl">
                 <li>
                     <NavLink to="/" style={({isActive}) => isActive ? activeNavStyle : undefined}>
                         Home

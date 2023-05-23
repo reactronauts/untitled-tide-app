@@ -48,9 +48,9 @@ export function Searchbar() {
     }
 
   return (
-    <div className="p-2 block">
+    <div className="p-2 pb-5 block">
       <div className="ml-auto block">
-        <label className="self-center pr-2">Search Location:</label>
+        <label className="self-center pr-2 text-lg">Search Location:</label>
         <input
           id="autocomplete-input"
           className="w-full max-w-md border-2"
