@@ -70,14 +70,18 @@ const WeatherPage = () => {
   };
 
   return (
-    <div className='mx-auto max-w-screen-md mt-4 py-5 px-32 bg-custom-purple h-fit shadow-xl rounded-xl shadow-gray-400'>
+    <div className='mx-auto max-w-screen-xl mt-4 p-5 bg-dark-blue rounded-xl'>
       <Inputs handleSubmit={handleSubmit} />
-      {data.map((cityData, index) => (
-        <div key={index}>
-          <TimeAndLocation data={cityData} />
-          <TemperatureAndDetails data={cityData} />
-        </div>
-      ))}
+      <div className="grid grid-cols-4 gap-6">
+        {data.map((cityData, index) => (
+          <div key={index} className="p-4 rounded-lg bg-orange min-w-[250px]">
+            <TimeAndLocation data={cityData} />
+            <div className="mt-4">
+              <TemperatureAndDetails data={cityData} />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 
