@@ -20,6 +20,7 @@ const WeatherPage = () => {
   })
 
   const [name, setName] = useState('');
+  const [unit, setUnit] = useState('metric');
 
   useEffect(() => {
     if (data && data.coord) {
@@ -37,7 +38,7 @@ const WeatherPage = () => {
 
   const handleClick = () => {
     if(name !== "") {
-      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=3f30f4fc409dcbbfeac403b001b1804e&units=metric`;
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=3f30f4fc409dcbbfeac403b001b1804e&units=${unit}`;
       axios.get(apiUrl)
         .then(res => {
           let imagePath = '';
@@ -82,14 +83,15 @@ const WeatherPage = () => {
 
   return ( 
     <div className='mx-auto max-w-screen-md mt-4 py-5 px-32 bg-custom-purple h-fit rounded-xl shadow-gray-400'>
-      <Inputs handleSubmit={handleSubmit} setName={setName} />
+      <Inputs handleSubmit={handleSubmit} setName={setName} unit={unit} setUnit={setUnit} />
       {data && <TimeAndLocation data={data} />}
-      {data && <TemperatureAndDetails data={data} />}
+      {data && <TemperatureAndDetails data={data} unit={unit} />}
     </div>
   );
 };
 
 export default WeatherPage;
+
 
 
 
