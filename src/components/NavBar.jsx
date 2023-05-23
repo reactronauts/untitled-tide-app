@@ -1,15 +1,10 @@
-import { NavLink } from "react-router-dom";
-import { DarkMode } from "./DarkMode"
+import { DarkMode } from "./DarkMode";
+import { NavigationLinks } from "./NavLinks";
 
 // import { Searchbar } from "../components/Searchbar";
 
 
 export function Navbar(){
-    let activeNavStyle = {
-        color: "white",
-        // textDecorationLine: "underline",
-        fontStyle: "italic"
-    }
  
     return(
         <nav className="flex justify-between px-4 py-6 items-center" >
@@ -23,27 +18,7 @@ export function Navbar(){
                 </button>
             </div>
             <ul className="flex px-4 py-6 text-center space-x-10 text-xl">
-                <li>
-                    <NavLink to="/" style={({isActive}) => isActive ? activeNavStyle : undefined}>
-                        Home
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/weather" style={({isActive}) => isActive ? activeNavStyle : undefined}>
-                        Weather
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/lunar" style={({isActive}) => isActive ? activeNavStyle : undefined}>
-                        Lunar
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/tides" style={({isActive}) => isActive ? activeNavStyle : undefined}>
-                        Tides
-                    </NavLink>
-                </li>
-                
+                <NavigationLinks />
             </ul>
         </nav>
     );
