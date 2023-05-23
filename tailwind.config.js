@@ -12,13 +12,10 @@ export default {
         'dm-db': '#0A121B',
         'dm-y': '#854500',
         'dm-o': '#7F3100',
-      },
-    
-      colors: {
         'custom-green': 'rgb(204,228,218)',
         'custom-purple': 'rgb(146,179,243)',
         'custom-black': 'rgb(10,13,16)'
-      }
+      },
     },
   },
   plugins: [],
