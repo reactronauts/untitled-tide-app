@@ -1,18 +1,20 @@
 import React from 'react';
 import { UilSearch, UilLocationPoint } from '@iconscout/react-unicons';
 
-function Inputs() {
+function Inputs({ handleClick, setName }) {
   return (
     <div className='flex flex-row justify-center my-6'>
         <div className="flex flex-row w-full items-center justify-center space-x-4">
             <input 
                 type='text' 
                 placeholder='search for city...' 
-                className='text-xl font-light p-2 w-full shadow-xl rounded-2xl focus:outline-none capitalize placeholder:lowercase' 
+                onChange={e => setName(e.target.value)}
+                className='text-xl font-light p-2 w-full shadow-xl rounded-xl focus:outline-none capitalize placeholder:lowercase' 
             />
             <UilSearch 
                 size={25} 
                 className='text-white cursor-pointer transition ease-out hover:scale-125'
+                onClick={handleClick}
             />
             <UilLocationPoint 
                 size={25} 
