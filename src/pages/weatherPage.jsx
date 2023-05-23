@@ -16,7 +16,8 @@ const WeatherPage = () => {
     humidity: 92,
     wind: 8,
     image: cloudyImage,
-    description: 'Cloudy'
+    description: 'Cloudy',
+    feels: 8
   })
 
   const [name, setName] = useState('');
@@ -69,7 +70,8 @@ const WeatherPage = () => {
             wind: res.data.wind.speed, 
             image: imagePath,
             description: weatherDescription,
-            coord: res.data.coord // You need to include this
+            coord: res.data.coord, 
+            feels: res.data.main.feels_like
           })
         })
         .catch(err => console.log(err))

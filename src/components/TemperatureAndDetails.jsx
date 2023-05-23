@@ -31,7 +31,7 @@ function TemperatureAndDetails({ data, unit }) {
                   <div className='flex font-light text-sm items-center justify-start'>
                       <UilTemperature size={18} className='mr-1' />
                       Feels Like:
-                      <span className='font-medium ml-1'>{Math.round(unit === 'metric' ? data.celsius : data.celsius * 9 / 5 + 32)}°</span> {/* Need to replace with the actual 'feels like' data */}
+                      <span className='font-medium ml-1'>{Math.round(unit === 'metric' ? data.feels : data.feels * 9 / 5 + 32)}°</span> {/* Need to replace with the actual 'feels like' data */}
                   </div>
                   <div className='flex font-light text-sm items-center justify-start'>
                       <UilTear size={18} className='mr-1' />
