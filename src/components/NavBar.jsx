@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export function Navbar(){
     let activeNavStyle = {
-        textDecorationColor: "white",
+        textDecorationColor: "orange",
         textDecorationLine: "line-through"
     }
 

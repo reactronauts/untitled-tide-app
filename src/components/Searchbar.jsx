@@ -50,7 +50,7 @@ export function Searchbar() {
   return (
     <div className="p-2 block">
       <div className="ml-auto block">
-        <label className="self-center pr-2">Search:</label>
+        <label className="self-center pr-2">Search Location:</label>
         <input
           id="autocomplete-input"
           className="w-full max-w-md border-2"
