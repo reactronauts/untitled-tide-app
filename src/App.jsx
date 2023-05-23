@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import WeatherPage from './pages/WeatherPage';
 
 function App() {
     return (
@@ -6,7 +7,7 @@ function App() {
             <Routes>
                 <Route path="/">
                     <Route path="tides" />
-                    <Route path="weather" />
+                    <Route path="weather" element={<WeatherPage />}/>
                     <Route path="lunar" />
                 </Route>
             </Routes>
