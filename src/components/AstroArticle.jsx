@@ -10,7 +10,7 @@ export function Article() {
   }, []);
 
   async function fetchArticle() {
-    const url = `https://newsapi.org/v2/everything?q=celestial&apiKey=${apiKey}`;
+    const url = `https://newsapi.org/v2/everything?q=astronomy&apiKey=${apiKey}`;
 
     try {
       const response = await fetch(url);
