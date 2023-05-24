@@ -1,4 +1,4 @@
-import { Navbar } from "./Navbar"
+import { Navbar } from "./NavBar";
 // import { Searchbar } from "./Searchbar"
 
 export function Header(){
