@@ -8,7 +8,7 @@ function Inputs({ handleSubmit, setName, unit, setUnit }) {
   };
 
   return (
-    <div className='flex flex-row justify-center my-6'>
+    <div className='flex flex-row justify-center my-3'>
       <form onSubmit={handleSubmit} className="flex flex-row w-full items-center justify-center space-x-4">
         <input 
           type='text' 

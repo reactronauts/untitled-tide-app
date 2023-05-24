@@ -8,6 +8,7 @@ import clearImage from '../images/clear.png';
 import rainImage from '../images/rain.png';
 import drizzleImage from '../images/drizzle.png';
 import mistImage from '../images/mist.png';
+import. meta.env.VITE_LOCATION_API_KEY
 
 const WeatherPage = () => {
   const [data, setData] = useState({
@@ -26,7 +27,7 @@ const WeatherPage = () => {
 
   const handleClick = () => {
     if(name !== "") {
-      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=b3279426546d42e671b9c96fe8245134&units=${unit}`;
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${import.meta.env.VITE_LOCATION_API_KEY}&units=${unit}`;
       axios.get(apiUrl)
         .then(res => {
           let imagePath = '';
