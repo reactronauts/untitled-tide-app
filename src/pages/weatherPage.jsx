@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Inputs from '../components/Inputs';
 import TimeAndLocation from '../components/TimeAndLocation';
@@ -8,6 +8,7 @@ import clearImage from '../images/clear.png';
 import rainImage from '../images/rain.png';
 import drizzleImage from '../images/drizzle.png';
 import mistImage from '../images/mist.png';
+import Forecast from '../components/Forecast';
 
 const WeatherPage = () => {
   const [data, setData] = useState({
@@ -17,29 +18,16 @@ const WeatherPage = () => {
     wind: 8,
     image: cloudyImage,
     description: 'Cloudy',
-    feels: 8
+    feels: 8,
+    dateTime: 'Wednesday, 24 May 2023 | Local time: 10:00 AM'
   })
 
   const [name, setName] = useState('');
   const [unit, setUnit] = useState('metric');
 
-  useEffect(() => {
-    if (data && data.coord) {
-      const fetchTimeZone = async () => {
-        const { data: timeZoneData } = await axios.get(`https://maps.googleapis.com/maps/api/timezone/json?location=${data.coord.lat},${data.coord.lon}&timestamp=${Math.floor(Date.now() / 1000)}&key=AIzaSyAfwhFgTO3jlmRMSWRqtO1kMFXLwFqbzww`);
-        setData(prevData => ({
-          ...prevData,
-          timeZoneId: timeZoneData.timeZoneId
-        }));
-      };
-
-      fetchTimeZone();
-    }
-  }, [data]);
-
   const handleClick = () => {
     if(name !== "") {
-      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=3f30f4fc409dcbbfeac403b001b1804e&units=${unit}`;
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=b3279426546d42e671b9c96fe8245134&units=${unit}`;
       axios.get(apiUrl)
         .then(res => {
           let imagePath = '';
@@ -70,8 +58,8 @@ const WeatherPage = () => {
             wind: res.data.wind.speed, 
             image: imagePath,
             description: weatherDescription,
-            coord: res.data.coord, 
-            feels: res.data.main.feels_like
+            feels: res.data.main.feels_like,
+            dateTime: res.data.timezone
           })
         })
         .catch(err => console.log(err))
@@ -88,11 +76,13 @@ const WeatherPage = () => {
       <Inputs handleSubmit={handleSubmit} setName={setName} unit={unit} setUnit={setUnit} />
       {data && <TimeAndLocation data={data} />}
       {data && <TemperatureAndDetails data={data} unit={unit} />}
+      <Forecast />
     </div>
   );
 };
 
 export default WeatherPage;
+
 
 
 
