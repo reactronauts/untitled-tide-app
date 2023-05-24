@@ -36,9 +36,9 @@ export function Article() {
           <p>{article.description}</p>
           {article.urlToImage ? (
             <img className="mt-4 rounded" src={article.urlToImage} alt={article.title} />
-          ) : (
+            ) : (
             <div className="h-48 bg-gray-300 rounded"></div> // fallback image placeholder
-          )}
+            )}
           <a className="text-blue-500 mt-2 inline-block" href={article.url}>Read more</a>
         </div>
       ) : (
