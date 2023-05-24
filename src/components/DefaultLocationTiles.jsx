@@ -15,7 +15,7 @@ const WeatherPage = () => {
 
   useEffect(() => {
     fetchWeatherData();
-  }, []);
+  });
 
   const fetchWeatherData = () => {
     const requests = cities.map(city =>
@@ -24,7 +24,7 @@ const WeatherPage = () => {
 
     Promise.all(requests)
       .then(responses => {
-        const weatherData = responses.map((response, index) => {
+        const weatherData = responses.map((response) => {
           const weather = response.data.weather[0].main;
           let imagePath = '';
           let weatherDescription = '';
