@@ -13,7 +13,9 @@ import saturnIcon from '../images/lunarImages/saturn.svg'
 import uranusIcon from '../images/lunarImages/uranus.svg'
 import neptuneIcon from '../images/lunarImages/neptune.svg'
 
-// api: https://ipgeolocation.io/astronomy-api.html
+// api: https://home.openweathermap.org/api_keys
+
+
 
 // GET https://api.visibleplanets.dev/v3?latitude=32&longitude=-98
 
@@ -40,11 +42,33 @@ export function LunarPageContainer() {
     }
 
 
+    const [rises, setRises] = useState()
+
+    function getAstronomicalData() {
+        const astronomicalApi = 'https://api.openweathermap.org/data/2.5/weather?lat=' + defaultLocationSydney.latitude + '&lon=' + defaultLocationSydney.longitude + '&appid={apikey}'
+
+        fetch(astronomicalApi)
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data)
+                setRises(data)
+            })
+            .catch((error) => {
+                console.log("Fetch failed!" + error);
+                return null;
+            });
+        }
+
+
     const [locationName, setLocationName] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        getPlanetaryPositions();
+        // getPlanetaryPositions();
+        getAstronomicalData();
+
     };
 
 
@@ -63,7 +87,7 @@ export function LunarPageContainer() {
                 <ul>
                     {planets &&
                         planets.map((planet) => (
-                            <li key={planet.name} className="p-2 bg-light-blue inline-block ms-2 mt-2 text-center">
+                            <li key={planet.name} className="p-2 inline-block ms-2 mt-2 text-center">
                                 {planet.name == 'Sun' ? <img src={sunIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
                                 {planet.name == 'Moon' ? <img src={moonIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
                                 {planet.name == 'Mercury' ? <img src={mercuryIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
