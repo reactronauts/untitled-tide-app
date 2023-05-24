@@ -8,7 +8,6 @@ import clearImage from '../images/clear.png';
 import rainImage from '../images/rain.png';
 import drizzleImage from '../images/drizzle.png';
 import mistImage from '../images/mist.png';
-import Forecast from '../components/Forecast';
 
 const WeatherPage = () => {
   const [data, setData] = useState({
@@ -76,7 +75,6 @@ const WeatherPage = () => {
       <Inputs handleSubmit={handleSubmit} setName={setName} unit={unit} setUnit={setUnit} />
       {data && <TimeAndLocation data={data} />}
       {data && <TemperatureAndDetails data={data} unit={unit} />}
-      <Forecast />
     </div>
   );
 };
