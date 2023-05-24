@@ -1,6 +1,6 @@
 import { UilLocationPoint } from "@iconscout/react-unicons";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 function TidePage() {
     const TIDE_STATES = ["VIC", "NSW", "QLD", "TAS", "SA", "NT"];
     const STATE_NAMES = {
@@ -25,8 +25,8 @@ function TidePage() {
             `https://tidal-data.onrender.com/tides/${buttonState}`
         );
         newTideData
-            .then((data) => {
-                setTideData(data);
+            .then((response) => {
+                setTideData(response.data);
             })
             .catch((err) => console.log(err));
     };
