@@ -9,11 +9,11 @@ const defaultGeolocationCoordinateData = {
 }
 
 
-export const GeolocationContext = createContext(defaultGeolocationCoordinateData);
+export const GeolocationContext = createContext(null);
 
 export default function GeolocationContextComponent (props) {
 
-	const [location, setLocation] = useState({})
+	const [location, setLocation] = useState(defaultGeolocationCoordinateData)
 	
 	return (
 		<GeolocationContext.Provider value={{readLocation: location, updateLocation: setLocation}}>

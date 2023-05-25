@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { GeolocationContext } from './GeolocationContextComponent';
 
 export function GetUserLocation() {
