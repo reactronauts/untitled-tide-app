@@ -1,9 +1,14 @@
 import React from 'react';
 import { UilSearch, UilLocationPoint } from '@iconscout/react-unicons';
 
-function Inputs({ handleSubmit, setName }) {
+function Inputs({ handleSubmit, setName, unit, setUnit }) {
+  const handleUnitChange = (event) => {
+    event.preventDefault();
+    setUnit(event.target.name);
+  };
+
   return (
-    <div className='flex flex-row justify-center my-6'>
+    <div className='flex flex-row justify-center my-3'>
       <form onSubmit={handleSubmit} className="flex flex-row w-full items-center justify-center space-x-4">
         <input 
           type='text' 
@@ -17,16 +22,18 @@ function Inputs({ handleSubmit, setName }) {
             className='text-white cursor-pointer transition ease-out hover:scale-125'
           />
         </button>
+        <button type='submit' className='bg-transparent border-none cursor-pointer p-0 m-0'>
         <UilLocationPoint 
-          size={37} 
+          size={25} 
           className='text-white cursor-pointer transition ease-out hover:scale-125'
         />
+        </button>
         <div className='flex flex-row w-1/4 items-center justify-center'>
-          <button name='metric' className='text-xl text-white font-light'>
+          <button name='metric' className='text-xl text-white font-light cursor-pointer transition ease-out hover:scale-125' onClick={handleUnitChange}>
             °C
           </button>
-          <p className='text-xl text-white mx-1'>|</p>
-          <button name='imperial' className='text-xl text-white font-light'>
+          <p className='text-xl text-white mx-2.5'>|</p>
+          <button name='imperial' className='text-xl text-white font-light cursor-pointer transition ease-out hover:scale-125' onClick={handleUnitChange}>
             °F
           </button>
         </div>
@@ -36,3 +43,4 @@ function Inputs({ handleSubmit, setName }) {
 }
 
 export default Inputs;
+
