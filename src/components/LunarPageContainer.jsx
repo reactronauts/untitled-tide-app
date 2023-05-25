@@ -97,16 +97,16 @@ export function LunarPageContainer() {
                     {planets &&
                         planets.map((planet) => (
                             <li key={planet.name} className="p-2 ms-2 mt-2 text-center text-white sm:inline-block sm:text-center">
-                                {planet.name == 'Sun' ? <img src={sunIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
-                                {planet.name == 'Moon' ? <img src={moonIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
-                                {planet.name == 'Mercury' ? <img src={mercuryIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
-                                {planet.name == 'Venus' ? <img src={venusIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
-                                {planet.name == 'Mars' ? <img src={marsIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
-                                {planet.name == 'Jupiter' ? <img src={jupiterIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
-                                {planet.name == 'Saturn' ? <img src={saturnIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
-                                {planet.name == 'Uranus' ? <img src={uranusIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
-                                {planet.name == 'Neptune' ? <img src={neptuneIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
-                                {planet.name == 'Pluto' ? <img src={plutoIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
+                                {planet.name == 'Sun' ? <img src={sunIcon} className="h-10 w-10 viewBox=0 0 24 24 mx-auto"/> : null}
+                                {planet.name == 'Moon' ? <img src={moonIcon} className="h-10 w-10 viewBox=0 0 24 24 mx-auto"/> : null}
+                                {planet.name == 'Mercury' ? <img src={mercuryIcon} className="h-10 w-10 viewBox=0 0 24 24 mx-auto"/> : null}
+                                {planet.name == 'Venus' ? <img src={venusIcon} className="h-10 w-10 viewBox=0 0 24 24 mx-auto"/> : null}
+                                {planet.name == 'Mars' ? <img src={marsIcon} className="h-10 w-10 viewBox=0 0 24 24 mx-auto"/> : null}
+                                {planet.name == 'Jupiter' ? <img src={jupiterIcon} className="h-10 w-10 viewBox=0 0 24 24 mx-auto"/> : null}
+                                {planet.name == 'Saturn' ? <img src={saturnIcon} className="h-10 w-10 viewBox=0 0 24 24 mx-auto"/> : null}
+                                {planet.name == 'Uranus' ? <img src={uranusIcon} className="h-10 w-10 viewBox=0 0 24 24 mx-auto"/> : null}
+                                {planet.name == 'Neptune' ? <img src={neptuneIcon} className="h-10 w-10 viewBox=0 0 24 24 mx-auto"/> : null}
+                                {planet.name == 'Pluto' ? <img src={plutoIcon} className="h-10 w-10 viewBox=0 0 24 24 mx-auto"/> : null}
                                 <p>{planet.name}</p><p>Constellation: {planet.constellation}</p>{planet.nakedEyeObject ? <p>Telescope: No</p> : <p>Telescope: Yes</p>}</li>
                         ))}
                 </ul>
