@@ -8,6 +8,7 @@ import clearImage from '../images/clear.png';
 import rainImage from '../images/rain.png';
 import drizzleImage from '../images/drizzle.png';
 import mistImage from '../images/mist.png';
+import. meta.env.VITE_LOCATION_API_KEY
 
 const WeatherPage = () => {
   const [data, setData] = useState({
@@ -16,14 +17,17 @@ const WeatherPage = () => {
     humidity: 92,
     wind: 8,
     image: cloudyImage,
-    description: 'Cloudy'
+    description: 'Cloudy',
+    feels: 8,
+    dateTime: 'Wednesday, 24 May 2023 | Local time: 10:00 AM'
   })
 
   const [name, setName] = useState('');
+  const [unit, setUnit] = useState('metric');
 
   const handleClick = () => {
     if(name !== "") {
-      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=3f30f4fc409dcbbfeac403b001b1804e&units=metric`;
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${import.meta.env.VITE_LOCATION_API_KEY}&units=${unit}`;
       axios.get(apiUrl)
         .then(res => {
           let imagePath = '';
@@ -53,7 +57,9 @@ const WeatherPage = () => {
             humidity: res.data.main.humidity, 
             wind: res.data.wind.speed, 
             image: imagePath,
-            description: weatherDescription
+            description: weatherDescription,
+            feels: res.data.main.feels_like,
+            dateTime: res.data.timezone
           })
         })
         .catch(err => console.log(err))
@@ -66,15 +72,18 @@ const WeatherPage = () => {
   }
 
   return ( 
-    <div className='mx-auto max-w-screen-md mt-4 py-5 px-32 bg-custom-purple h-fit shadow-xl rounded-xl shadow-gray-400'>
-      <Inputs handleSubmit={handleSubmit} setName={setName} />
-      <TimeAndLocation data={data} />
-      <TemperatureAndDetails data={data} />
+    <div className='mx-auto max-w-screen-md mt-4 py-5 px-32 bg-custom-purple h-fit rounded-xl shadow-gray-400'>
+      <Inputs handleSubmit={handleSubmit} setName={setName} unit={unit} setUnit={setUnit} />
+      {data && <TimeAndLocation data={data} />}
+      {data && <TemperatureAndDetails data={data} unit={unit} />}
     </div>
   );
 };
 
 export default WeatherPage;
+
+
+
 
 
 

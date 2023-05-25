@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { GeolocationContext } from './GeolocationContextComponent';
 
 export function GetUserLocation() {
-    const [location, setLocation] = useState({})
+
+    const [localLocation, setLocalLocation] = useState({})
+
+    const contextLocationData = useContext(GeolocationContext)
 
     const handleLocationShare = () => {
         window.navigator.geolocation.getCurrentPosition(
-            success => setLocation({latitude: success.coords.latitude, longitude: success.coords.longitude}),
+            success => (setLocalLocation({latitude: success.coords.latitude, longitude: success.coords.longitude}), contextLocationData.updateLocation(localLocation)),
             error => console.log(error)
         ) 
     }
