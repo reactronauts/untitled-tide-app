@@ -67,7 +67,7 @@ export function LunarPageContainer() {
     const fullAgain = 29.53058770576 
 
     return (
-        <div className="h-5/6 w-5/6 rounded-2xl bg-light-blue text-dark-blue font-sans p-3 m-10">
+        <div className="h-5/6 w-5/6 rounded-2xl bg-light-blue text-dark-blue font-sans p-3 m-10 sm:p-8">
             <GetUserLocation /> 
 
             <Inputs
@@ -81,7 +81,7 @@ export function LunarPageContainer() {
                 {planets &&
                         planets.map((planet) => (
                             <li key={planet.name}>
-                                {planet.name == 'Moon' ? <img src={crescentMoon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
+                                {planet.name == 'Moon' ? <img src={crescentMoon} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/> : null}
                                 {planet.name == 'Moon' && (planet.phase == fullMoon)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2">Moon Phase: Full Moon</p> : null}
                                 {planet.name == 'Moon' && (planet.phase > fullMoon && planet.phase < lastQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2">Moon Phase: Waning Gibbous</p> : null}
                                 {planet.name == 'Moon' && (planet.phase == lastQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2">Moon Phase: Last Quarter</p> : null}
@@ -94,13 +94,13 @@ export function LunarPageContainer() {
                             </li>))}
                 </ul>
             </div>
-
+                
             <div>
                 <h2 className="text-white text-2xl sm:text-3xl text-center drop-shadow-lg">Currently Visible in the Sky:</h2>
-                <ul>
+                <ul className="sm:text-center">
                     {planets &&
                         planets.map((planet) => (
-                            <li key={planet.name} className="p-2 inline-block ms-2 mt-2 text-center text-white justify-evenly">
+                            <li key={planet.name} className="p-2 ms-2 mt-2 text-center text-white sm:inline-block sm:text-center">
                                 {planet.name == 'Sun' ? <img src={sunIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
                                 {planet.name == 'Moon' ? <img src={moonIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
                                 {planet.name == 'Mercury' ? <img src={mercuryIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
