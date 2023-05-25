@@ -18,8 +18,7 @@ export default function HandleInputBar() {
                 return response.json();
             })
             .then((data) => {
-                console.log(data);
-                setSearchLocationCoords({latitude: data.lat, longitude: data.lon})
+                setSearchLocationCoords({latitude: data[0].lat, longitude: data[0].lon})
                 contextLocation.updateLocation(searchLocationCoords)
             })
             .catch((error) => {
