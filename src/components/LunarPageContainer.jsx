@@ -11,14 +11,15 @@ import jupiterIcon from '../images/lunarImages/jupiter.svg'
 import saturnIcon from '../images/lunarImages/saturn.svg'
 import uranusIcon from '../images/lunarImages/uranus.svg'
 import neptuneIcon from '../images/lunarImages/neptune.svg'
-import fullMoon from '../images/lunarImages/moonPhaseImages/full-moon.png'
-import newMoon from '../images/lunarImages/moonPhaseImages/new-moon.png'
-import crescentMoon from '../images/lunarImages/moonPhaseImages/crescent-moon.png'
-import firstQuarterMoon from '../images/lunarImages/moonPhaseImages/first-quarter-moon.png'
-import lastQuarterMoon from '../images/lunarImages/moonPhaseImages/last-quarter-moon.png'
-import waningCrescentMoon from '../images/lunarImages/moonPhaseImages/waning-crescent-moon.png'
-import waxingCrescentMoon from '../images/lunarImages/moonPhaseImages/waxing-crescent-moon.png'
-import waxingGibbousMoon from '../images/lunarImages/moonPhaseImages/waxing-gibbous-moon.png'
+import plutoIcon from '../images/lunarImages/pluto.svg'
+import fullMoonImage from '../images/lunarImages/moonPhaseImages/full-moon.png'
+import newMoonImage from '../images/lunarImages/moonPhaseImages/new-moon.png'
+import firstQuarterMoonImage from '../images/lunarImages/moonPhaseImages/first-quarter-moon.png'
+import lastQuarterMoonImage from '../images/lunarImages/moonPhaseImages/last-quarter-moon.png'
+import waningCrescentMoonImage from '../images/lunarImages/moonPhaseImages/waning-crescent-moon.png'
+import waxingCrescentMoonImage from '../images/lunarImages/moonPhaseImages/waxing-crescent-moon.png'
+import waxingGibbousMoonImage from '../images/lunarImages/moonPhaseImages/waxing-gibbous-moon.png'
+import waningGibbousMoonImage from '../images/lunarImages/moonPhaseImages/waning-gibbous-moon.png'
 import { useLocation } from "react-router-dom";
 import { GeolocationContext } from "./GeolocationContextComponent";
 
@@ -28,11 +29,10 @@ export function LunarPageContainer() {
 
     const [planets, setPlanet] = useState([]);
 
-    const defaultLocationSydney = {latitude: -30.6377563, longitude: 151.4649722}
 
     function getPlanetaryPositions() {
         const planetsApi =
-            'https://api.visibleplanets.dev/v3?latitude=' + defaultLocationSydney.latitude + '&longitude=' + defaultLocationSydney.longitude;
+            'https://api.visibleplanets.dev/v3?latitude=' + contextLocation.readLocation.latitude + '&longitude=' + contextLocation.readLocation.longitude;
         fetch(planetsApi)
             .then((response) => {
                 return response.json();
@@ -54,9 +54,10 @@ export function LunarPageContainer() {
 
     // const [locationName, setLocationName] = useState("");
 
-    // useEffect(() => {
-    //     getPlanetaryPositions()
-    // }, [readLocation])
+    useEffect(() => {
+        getPlanetaryPositions()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [contextLocation])
     
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -77,6 +78,9 @@ export function LunarPageContainer() {
         <div className="h-5/6 w-5/6 rounded-2xl bg-light-blue text-dark-blue font-sans p-3 m-10 sm:p-8">
             <GetUserLocation /> 
             <div>
+                <p>
+                    {/* user location: {useLocation.latitude} */}
+                </p>
                 <p>user location: {contextLocation.readLocation.latitude}</p>
             </div>
 
@@ -91,16 +95,16 @@ export function LunarPageContainer() {
                 {planets &&
                         planets.map((planet) => (
                             <li key={planet.name}>
-                                {planet.name == 'Moon' ? <img src={crescentMoon} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/> : null}
-                                {planet.name == 'Moon' && (planet.phase == fullMoon)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2">Moon Phase: Full Moon</p> : null}
-                                {planet.name == 'Moon' && (planet.phase > fullMoon && planet.phase < lastQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2">Moon Phase: Waning Gibbous</p> : null}
-                                {planet.name == 'Moon' && (planet.phase == lastQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2">Moon Phase: Last Quarter</p> : null}
-                                {planet.name == 'Moon' && (planet.phase > lastQuarter && planet.phase < newMoon)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2">Moon Phase: Waning Crescent</p> : null}
-                                {planet.name == 'Moon' && (planet.phase == fullMoon)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2">Moon Phase: Full Moon</p> : null}
-                                {planet.name == 'Moon' && (planet.phase > fullMoon && planet.phase < firstQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2">Moon Phase: Waxing Crescent</p> : null}
-                                {planet.name == 'Moon' && (planet.phase == firstQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2">Moon Phase: First Quarter</p> : null}
-                                {planet.name == 'Moon' && (planet.phase > firstQuarter && planet.phase < fullAgain)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2">Moon Phase: Waxing Gibbous</p> : null}
-                                {planet.name == 'Moon' && (planet.phase == fullAgain)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2">Moon Phase: Full Moon</p> : null}
+                                {/* {planet.name == 'Moon' ? <img src={crescentMoon} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/> : null} */}
+                                {planet.name == 'Moon' && (planet.phase == fullMoon)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={fullMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Full Moon</p> : null}
+                                {planet.name == 'Moon' && (planet.phase > fullMoon && planet.phase < lastQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={waningGibbousMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Waning Gibbous</p> : null}
+                                {planet.name == 'Moon' && (planet.phase == lastQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={lastQuarterMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Last Quarter</p> : null}
+                                {planet.name == 'Moon' && (planet.phase > lastQuarter && planet.phase < newMoon)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={waningCrescentMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Waning Crescent</p> : null}
+                                {planet.name == 'Moon' && (planet.phase == newMoon)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={newMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: New Moon</p> : null}
+                                {planet.name == 'Moon' && (planet.phase > fullMoon && planet.phase < firstQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={waxingCrescentMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Waxing Crescent</p> : null}
+                                {planet.name == 'Moon' && (planet.phase == firstQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={firstQuarterMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: First Quarter</p> : null}
+                                {planet.name == 'Moon' && (planet.phase > firstQuarter && planet.phase < fullAgain)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={waxingGibbousMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Waxing Gibbous</p> : null}
+                                {planet.name == 'Moon' && (planet.phase == fullAgain)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={fullMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Full Moon</p> : null}
                             </li>))}
                 </ul>
             </div>
@@ -120,6 +124,7 @@ export function LunarPageContainer() {
                                 {planet.name == 'Saturn' ? <img src={saturnIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
                                 {planet.name == 'Uranus' ? <img src={uranusIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
                                 {planet.name == 'Neptune' ? <img src={neptuneIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
+                                {planet.name == 'Pluto' ? <img src={plutoIcon} className="h-8 w-8 viewBox=0 0 24 24 mx-auto"/> : null}
                                 <p>{planet.name}</p><p>Constellation: {planet.constellation}</p>{planet.nakedEyeObject ? <p>Telescope: No</p> : <p>Telescope: Yes</p>}</li>
                         ))}
                 </ul>
