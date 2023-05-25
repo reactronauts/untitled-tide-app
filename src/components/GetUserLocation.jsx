@@ -19,7 +19,7 @@ export function GetUserLocation() {
 
     return(
         <div>
-            <button onClick={handleLocationShare} className='border-2 p-1 rounded-full bg-light-blue  shadow-md border-solid border-dark-blue/50 hover:border-solid hover:border-dark-blue hover:border-2 p-2'>Share Your Current Location</button>
+            <button onClick={handleLocationShare} className='mr-0 border-2 p-1 text-white text-m sm:text-xl font-sans rounded-lg mb-2 shadow-xl border-solid border-dark-blue/30 p-2'>Share Your Current Location</button>
         </div>   
     )
 }
