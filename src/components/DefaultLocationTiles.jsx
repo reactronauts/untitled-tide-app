@@ -8,6 +8,7 @@ import clearImage from '../images/clear.png';
 import rainImage from '../images/rain.png';
 import drizzleImage from '../images/drizzle.png';
 import mistImage from '../images/mist.png';
+import.meta.env.VITE_LOCATION_API_KEY;
 
 const WeatherPage = () => {
   const [data, setData] = useState([]);
@@ -19,7 +20,7 @@ const WeatherPage = () => {
 
   const fetchWeatherData = () => {
     const requests = cities.map(city =>
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3f30f4fc409dcbbfeac403b001b1804e&units=metric`)
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_LOCATION_API_KEY}&units=metric`)
     );
 
     Promise.all(requests)

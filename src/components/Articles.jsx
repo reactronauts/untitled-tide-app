@@ -79,7 +79,7 @@ export function Article() {
         )}
         </div>
     );
-
+    
 }
 
 

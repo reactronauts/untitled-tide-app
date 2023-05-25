@@ -10,8 +10,10 @@ export default function HomePage(){
     return(
         <div className="bg-light-blue w-screen flex flex-col">
             <div className="flex flex-col h-screen pb-10">
-                <DefaultLocationTiles />
-                <Article />
+                <div className="overflow-y-auto">
+                    <DefaultLocationTiles />
+                    <Article />
+                </div>
             </div>
         </div>
         
