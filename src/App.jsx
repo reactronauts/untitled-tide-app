@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import { LunarPage } from "./pages/LunarPage";
 import WeatherPage from './pages/WeatherPage';
 import GeolocationContextComponent from "./components/GeolocationContextComponent";
-import TidePage from "./pages/TidePage";
 
 function App() {
     return (
