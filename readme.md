@@ -112,6 +112,7 @@ Additional Features:
 [CO-OPS API by NOAA ](https://api.tidesandcurrents.noaa.gov/api/prod/)
 - Google Place Autocomplete Search for addresses (search bar on Homepage):
 [Google Place Autocomplete](https://developers.google.com/maps/documentation/javascript/place-autocomplete)
+- News API for homepage astronomy articles [NEWS API](https://newsapi.org/)
 
 #### Other Resources:
 - Concept for tidal data visualizer [Steamgraph transition example](https://observablehq.com/@d3/streamgraph-transitions)

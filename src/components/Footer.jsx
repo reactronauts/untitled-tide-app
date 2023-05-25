@@ -14,9 +14,7 @@ export function Footer(){
                 </nav>
             </div>
             <div className="text-center py-2">
-                Rights and Ownership to Connie Jacques, Will Robertson, Jordan Aston, & Sarah Landis.
-                <br />
-                Designed and created in 2023.
+            © Jordan Aston, William Robertson, Connie Jacques, & Sarah Landis 2023.
             </div>
         </footer>
 

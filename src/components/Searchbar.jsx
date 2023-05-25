@@ -8,7 +8,7 @@ export function Searchbar() {
 
   // to load the script
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyATmNE9x88S4vTtHU5w_0v2-06gMtr0nfI",
+    googleMapsApiKey: "",
     libraries,
   });
 

@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
-
+import.meta.env.VITE_ASTRO_ARTICLES_API_KEY
 
 export function Article() {
   const [article, setArticle] = useState(null);
-  const apiKey = '511789d3427e49aab21edc10b1b6c59d';
 
   useEffect(() => {
     fetchArticle();
   }, []);
 
   async function fetchArticle() {
-    const url = `https://newsapi.org/v2/everything?q=astronomy&apiKey=${apiKey}`;
+    const url = `https://newsapi.org/v2/everything?q=astronomy&language=en&apiKey=${import.meta.env.VITE_ASTRO_ARTICLES_API_KEY}`;
 
     try {
       const response = await fetch(url);
@@ -28,8 +27,10 @@ export function Article() {
       console.error('Error fetching article:', error);
     }
   }
+
+
   return (
-    <div className="flex justify-start">
+    <div className="flex justify-start p-10">
     {article ? (
         <div className="bg-gray-200 p-4 rounded-lg max-w-lg mx-auto">
           <h2 className="text-2xl font-bold mb-2">{article.title}</h2>
@@ -46,4 +47,6 @@ export function Article() {
       )}
     </div>
   );
+
+
 }
