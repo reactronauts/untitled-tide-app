@@ -2,13 +2,12 @@ import axios from "axios";
 import * as dotenv from "dotenv";
 dotenv.config();
 
-// Skeleton for weatherPage API call
-// TODO: fix weatherPage call
+// weatherPage API call
 exports.handler = async (event, context) => {
     try {
         const { name } = event.queryStringParameters;
         let response = await axios.get(
-            `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=3f30f4fc409dcbbfeac403b001b1804e&units=metric`,
+            `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${process.env.VITE_LOCATION_API_KEY}&units=metric`,
             {
                 headers: { Accept: "application/json" },
             }

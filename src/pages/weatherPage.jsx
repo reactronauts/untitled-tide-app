@@ -27,7 +27,7 @@ const WeatherPage = () => {
 
   const handleClick = () => {
     if(name !== "") {
-      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${import.meta.env.VITE_LOCATION_API_KEY}&units=${unit}`;
+      const apiUrl = `/.netlify/functions/getWeather?name=${name}`;
       axios.get(apiUrl)
         .then(res => {
           let imagePath = '';
