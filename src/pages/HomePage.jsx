@@ -1,6 +1,6 @@
 import { DefaultLocationTiles } from "../components/DefaultLocationTiles";
 // import { Searchbar } from "../components/Searchbar";
-import { Article } from "../components/AstroArticle";
+import { Article } from "../components/Articles";
 // import { useState } from "react";
 // import { DarkModeButton } from "../components/DarkModeButton";
 
