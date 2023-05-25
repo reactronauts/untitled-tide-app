@@ -1,10 +1,12 @@
-import { setState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { UilSearch } from '@iconscout/react-unicons';
 import { GeolocationContext } from "./GeolocationContextComponent";
 
 
 export default function HandleInputBar() {
-    const [searchLocationName, setSearchLocationName] = setState('')
+    const [searchLocationName, setSearchLocationName] = useState('')
+
+    const [searchLocationCoords, setSearchLocationCoords] = useState('')
 
     let contextLocation = useContext(GeolocationContext)
 
@@ -17,8 +19,8 @@ export default function HandleInputBar() {
             })
             .then((data) => {
                 console.log(data);
-                contextLocation.updateLocation.latitude(data.lat)
-                contextLocation.updateLocation.longitude(data.long)
+                setSearchLocationCoords({latitude: data.lat, longitude: data.lon})
+                contextLocation.updateLocation(searchLocationCoords)
             })
             .catch((error) => {
                 console.log("Fetch failed!" + error);
@@ -38,7 +40,7 @@ export default function HandleInputBar() {
           type='text' 
           placeholder='Search for location by name' 
           onChange={event => setSearchLocationName(event.target.value)}
-          className='text-xl font-light p-2 w-full shadow-xl rounded-xl focus:outline-none capitalize placeholder:lowercase' 
+          className='text-l sm:text-xl font-light p-2 w-full shadow-xl rounded-xl focus:outline-none capitalize placeholder:lowercase' 
         />
         <button type='submit' className='bg-transparent border-none cursor-pointer p-0 m-0'>
           <UilSearch 
