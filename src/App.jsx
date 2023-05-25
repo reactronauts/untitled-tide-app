@@ -10,8 +10,8 @@ function App() {
             <GeolocationContextComponent>
                 <Routes>
                     <Route path="/">
-                        <Route path="tides" />
-                        <Route path="weather" element={<WeatherPage />}/>
+                        <Route path="tides" element={<TidePage />} />
+                        <Route path="weather" element={<WeatherPage />} />
                         <Route path="lunar" element={<LunarPage />} />
                     </Route>
                 </Routes>
