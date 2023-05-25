@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import { PageLayout } from "./pages/PageLayout";
 import HomePage from "./pages/HomePage";
 import WeatherPage from "./pages/WeatherPage";
-import TidePage from "./pages/TidePage";
 
 function App() {
     return (
