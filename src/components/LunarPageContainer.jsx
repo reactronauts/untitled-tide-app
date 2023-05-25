@@ -71,14 +71,13 @@ export function LunarPageContainer() {
         <div className="h-5/6 w-5/6 rounded-2xl bg-light-blue text-dark-blue font-sans p-3 m-10 sm:p-8">
             <GetUserLocation /> 
 
-            {/* <HandleInputBar /> */}
+            <HandleInputBar />
 
             <div>
                 <ul>
                 {planets &&
                         planets.map((planet) => (
                             <li key={planet.name}>
-                                {/* {planet.name == 'Moon' ? <img src={crescentMoon} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/> : null} */}
                                 {planet.name == 'Moon' && (planet.phase == fullMoon)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={fullMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Full Moon</p> : null}
                                 {planet.name == 'Moon' && (planet.phase > fullMoon && planet.phase < lastQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={waningGibbousMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Waning Gibbous</p> : null}
                                 {planet.name == 'Moon' && (planet.phase == lastQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={lastQuarterMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Last Quarter</p> : null}
