@@ -1,7 +1,7 @@
 
 import { GetUserLocation } from "../components/GetUserLocation";
 import Inputs from "./Inputs";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import sunIcon from '../images/lunarImages/sun.svg'
 import moonIcon from '../images/lunarImages/moon.svg'
 import mercuryIcon from '../images/lunarImages/mercury.svg'
@@ -19,9 +19,13 @@ import lastQuarterMoon from '../images/lunarImages/moonPhaseImages/last-quarter-
 import waningCrescentMoon from '../images/lunarImages/moonPhaseImages/waning-crescent-moon.png'
 import waxingCrescentMoon from '../images/lunarImages/moonPhaseImages/waxing-crescent-moon.png'
 import waxingGibbousMoon from '../images/lunarImages/moonPhaseImages/waxing-gibbous-moon.png'
+import { useLocation } from "react-router-dom";
+import { GeolocationContext } from "./GeolocationContextComponent";
 
 
 export function LunarPageContainer() {
+    let contextLocation = useContext(GeolocationContext)
+
     const [planets, setPlanet] = useState([]);
 
     const defaultLocationSydney = {latitude: -30.6377563, longitude: 151.4649722}
@@ -50,6 +54,9 @@ export function LunarPageContainer() {
 
     // const [locationName, setLocationName] = useState("");
 
+    // useEffect(() => {
+    //     getPlanetaryPositions()
+    // }, [readLocation])
     
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -69,6 +76,9 @@ export function LunarPageContainer() {
     return (
         <div className="h-5/6 w-5/6 rounded-2xl bg-light-blue text-dark-blue font-sans p-3 m-10 sm:p-8">
             <GetUserLocation /> 
+            <div>
+                <p>user location: {contextLocation.readLocation.latitude}</p>
+            </div>
 
             <Inputs
                 handleSubmit={handleSubmit}
