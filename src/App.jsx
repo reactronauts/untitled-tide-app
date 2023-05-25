@@ -1,19 +1,20 @@
 import { Route, Routes } from "react-router-dom";
+import { PageLayout } from "./pages/PageLayout";
+import HomePage from "./pages/HomePage";
 import WeatherPage from "./pages/WeatherPage";
-import GeolocationContextComponent from "./components/GeolocationContextComponent";
+import TidePage from "./pages/TidePage";
 
 function App() {
     return (
         <>
-            <GeolocationContextComponent>
-                <Routes>
-                    <Route path="/">
-                        <Route path="tides" />
-                        <Route path="weather" element={<WeatherPage />} />
-                        <Route path="lunar" />
-                    </Route>
-                </Routes>
-            </GeolocationContextComponent>
+            <Routes>
+                <Route element={<PageLayout />}>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/tides" />
+                    <Route path="/weather" element={<WeatherPage />} />
+                    <Route path="/lunar" />
+                </Route>
+            </Routes>
         </>
     );
 }

@@ -102,7 +102,7 @@ Additional Features:
 ## Sources 
 
 #### APIs:
-- Homepage map interactive location search and fetch feature: [Google Maps API](https://developers.google.com/maps/documentation/javascript)
+- Homepage map interactive location search and fetch feature: [Maps Javascript API](https://developers.google.com/maps/documentation/javascript)
 - Weather API for weather page:
 [Open-Meteo API](https://open-meteo.com/en/docs)
 - Astrological API for lunar page featuring astro events and observations: [DONKI API](https://ccmc.gsfc.nasa.gov/tools/DONKI/)
@@ -110,6 +110,10 @@ Additional Features:
 - Lunar data API for lunar page: [Moon API](https://rapidapi.com/danylopashuk/api/moon-api1/)
 - Tidal data API for tidal page:
 [CO-OPS API by NOAA ](https://api.tidesandcurrents.noaa.gov/api/prod/)
+- Google Place Autocomplete Search for addresses (search bar on Homepage):
+[Google Place Autocomplete](https://developers.google.com/maps/documentation/javascript/place-autocomplete)
+- News API for homepage astronomy articles [NEWS API](https://newsapi.org/)
 
 #### Other Resources:
 - Concept for tidal data visualizer [Steamgraph transition example](https://observablehq.com/@d3/streamgraph-transitions)
+- 
