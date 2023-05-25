@@ -20,8 +20,8 @@ import waningCrescentMoonImage from '../images/lunarImages/moonPhaseImages/wanin
 import waxingCrescentMoonImage from '../images/lunarImages/moonPhaseImages/waxing-crescent-moon.png'
 import waxingGibbousMoonImage from '../images/lunarImages/moonPhaseImages/waxing-gibbous-moon.png'
 import waningGibbousMoonImage from '../images/lunarImages/moonPhaseImages/waning-gibbous-moon.png'
-import { useLocation } from "react-router-dom";
 import { GeolocationContext } from "./GeolocationContextComponent";
+import HandleInputBar from "./lunarInputBar";
 
 
 export function LunarPageContainer() {
@@ -47,48 +47,31 @@ export function LunarPageContainer() {
             });
     }
 
+
     useEffect(() => {
         getPlanetaryPositions()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    // const [locationName, setLocationName] = useState("");
 
     useEffect(() => {
         getPlanetaryPositions()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [contextLocation])
     
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        getPlanetaryPositions();
-    };
 
     const fullMoon = 0 
-    // const waningGibbous = 3.69132346322
     const lastQuarter = 7.38264692644
-    // const waningCrescent = 11.0739703897
     const newMoon = 14.76529385288
-    // const waxingCrescent = 18.4566173161
     const firstQuarter = 22.14794077932
-    // const waxingGibbous = 25.8392642425
     const fullAgain = 29.53058770576 
+
 
     return (
         <div className="h-5/6 w-5/6 rounded-2xl bg-light-blue text-dark-blue font-sans p-3 m-10 sm:p-8">
             <GetUserLocation /> 
-            <div>
-                <p>
-                    {/* user location: {useLocation.latitude} */}
-                </p>
-                <p>user location: {contextLocation.readLocation.latitude}</p>
-            </div>
 
-            <Inputs
-                handleSubmit={handleSubmit}
-                // setLocationName={setLocationName}
-            />
-
+            {/* <HandleInputBar /> */}
 
             <div>
                 <ul>
