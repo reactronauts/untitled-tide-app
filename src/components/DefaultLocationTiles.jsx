@@ -62,6 +62,7 @@ const WeatherPage = () => {
             image: imagePath,
             description: weatherDescription,
             dateTime: dateTime,
+            feels: response.data.main.feels_like,
           };
         });
 
