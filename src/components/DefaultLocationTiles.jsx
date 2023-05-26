@@ -89,7 +89,7 @@ const WeatherPage = () => {
       <div className="grid grid-cols-4 gap-6 pt-4 pb-2">
         {data.map((cityData, index) => (
           <div key={index} className="p-4 rounded-lg bg-orange min-w-[250px]">
-            <TimeAndLocation data={cityData} />
+            <TimeAndLocation data={cityData}/>
             <div className="mt-4">
               <TemperatureAndDetails data={cityData} />
             </div>
