@@ -6,7 +6,6 @@ import { GeolocationContext } from "./GeolocationContextComponent";
 export default function HandleInputBar() {
     const [searchLocationName, setSearchLocationName] = useState('')
 
-    const [searchLocationCoords, setSearchLocationCoords] = useState('')
 
     let contextLocation = useContext(GeolocationContext)
 
@@ -18,8 +17,7 @@ export default function HandleInputBar() {
                 return response.json();
             })
             .then((data) => {
-                setSearchLocationCoords({latitude: data[0].lat, longitude: data[0].lon})
-                contextLocation.updateLocation(searchLocationCoords)
+                contextLocation.updateLocation({latitude: data[0].lat, longitude: data[0].lon})
             })
             .catch((error) => {
                 console.log("Fetch failed!" + error);
