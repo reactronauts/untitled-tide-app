@@ -1,6 +1,5 @@
 
 import { GetUserLocation } from "../components/GetUserLocation";
-import Inputs from "./Inputs";
 import { useState, useEffect, useContext } from "react";
 import sunIcon from '../images/lunarImages/sun.svg'
 import moonIcon from '../images/lunarImages/moon.svg'
@@ -28,7 +27,6 @@ export function LunarPageContainer() {
     let contextLocation = useContext(GeolocationContext)
 
     const [planets, setPlanet] = useState([]);
-
 
     function getPlanetaryPositions() {
         const planetsApi =
