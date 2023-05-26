@@ -10,7 +10,6 @@ import rainImage from '../images/rain.png';
 import drizzleImage from '../images/drizzle.png';
 import mistImage from '../images/mist.png';
 import. meta.env.VITE_LOCATION_API_KEY
-import weatherBackground from '../images/weather-background.jpeg'; 
 
 const WeatherPage = () => {
   const [data, setData] = useState({
@@ -21,7 +20,7 @@ const WeatherPage = () => {
     image: cloudyImage,
     description: 'Cloudy',
     feels: 8,
-    dateTime: 'Wednesday, 24 May 2023 | Local time: 10:00 AM'
+    dateTime: 'Friday, 25 May 2023 | 10:00 AM'
   })
 
   const [name, setName] = useState('');
@@ -74,13 +73,13 @@ const WeatherPage = () => {
   }
 
   return ( 
-      <div className="fixed inset-0 bg-no-repeat bg-cover" style={{ backgroundImage: `url(${weatherBackground})`, zIndex: -1 }}>
-        <div className='mx-auto max-w-xs md:max-w-screen-md mt-4 py-5 md:px-32 px-8 bg-gradient-to-r from-custom-weather-1 to-custom-weather-2 h-fit rounded-xl shadow-xl'>
+      <div className="inset-0 bg-no-repeat bg-cover">
+        <div className='mx-auto max-w-xs md:max-w-screen-md mt-4 py-5 md:px-32 px-8 h-fit border rounded-xl mb-4'>
           <Inputs handleSubmit={handleSubmit} setName={setName} unit={unit} setUnit={setUnit} />
           {data && <TimeAndLocation data={data} />}
           {data && <TemperatureAndDetails data={data} unit={unit} />}
-          {/* <Forecast />
-          <Forecast /> */}
+          <Forecast />
+          <Forecast />
         </div>
       </div>
     );
