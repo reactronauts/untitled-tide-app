@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Inputs from '../components/Inputs';
+// below import used for searchbar component (commented out)
+// import Inputs from '../components/Inputs';
 import TemperatureAndDetails from '../components/TemperatureAndDetails';
 import TimeAndLocation from './TimeAndLocation';
 import cloudyImage from '../images/cloudy.png';
@@ -8,15 +9,17 @@ import clearImage from '../images/clear.png';
 import rainImage from '../images/rain.png';
 import drizzleImage from '../images/drizzle.png';
 import mistImage from '../images/mist.png';
+import { DateTime } from 'luxon';
+
 import.meta.env.VITE_LOCATION_API_KEY;
 
 const WeatherPage = () => {
   const [data, setData] = useState([]);
   const [cities] = useState(['New York', 'London', 'Tokyo', 'Sydney']);
-
+  
   useEffect(() => {
     fetchWeatherData();
-  });
+  }, []);
 
   const fetchWeatherData = () => {
     const requests = cities.map(city =>
@@ -50,6 +53,9 @@ const WeatherPage = () => {
             weatherDescription = 'Cloudy';
           }
 
+          const dateTime = response.data.timezone;
+          // const dateTime = DateTime.utc(response.data.timezone).toFormat('cccc, d LLLL yyyy | Local time: hh:mm a');
+
           return {
             celsius: response.data.main.temp,
             name: response.data.name,
@@ -57,6 +63,8 @@ const WeatherPage = () => {
             wind: response.data.wind.speed,
             image: imagePath,
             description: weatherDescription,
+            dateTime: dateTime,
+            feels: response.data.main.feels_like,
           };
         });
 
@@ -65,18 +73,26 @@ const WeatherPage = () => {
       .catch(err => console.log(err));
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    fetchWeatherData();
-  };
+  // for searchbar component
+  // const handleSubmit = event => {
+  //   event.preventDefault();
+  //   fetchWeatherData();
+  // };
+
+  const [dateTime, setDateTime] = useState('');
+
+  useEffect(() => {
+    const dt = DateTime.utc().toFormat('cccc, d LLLL yyyy | Local time: hh:mm a');
+    setDateTime(dt);
+  }, []);
 
   return (
     <div className='mx-auto max-w-screen-xl mt-4 p-5 bg-dark-blue rounded-xl'>
-      <Inputs handleSubmit={handleSubmit} />
-      <div className="grid grid-cols-4 gap-6">
+      {/* <Inputs handleSubmit={handleSubmit} /> */}
+      <div className="grid grid-cols-4 gap-6 pt-4 pb-2">
         {data.map((cityData, index) => (
           <div key={index} className="p-4 rounded-lg bg-orange min-w-[250px]">
-            <TimeAndLocation data={cityData} />
+            <TimeAndLocation data={cityData}/>
             <div className="mt-4">
               <TemperatureAndDetails data={cityData} />
             </div>
