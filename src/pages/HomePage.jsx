@@ -9,7 +9,7 @@ export default function HomePage(){
     
     return(
         <div className="bg-light-blue w-screen flex flex-col">
-            <div className="flex flex-col h-screen pb-10">
+            <div className="flex flex-col h-screen pb-10 py-5">
                 <div className="overflow-y-auto">
                     <DefaultLocationTiles />
                     <Article />
