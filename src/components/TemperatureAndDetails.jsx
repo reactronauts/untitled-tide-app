@@ -9,13 +9,13 @@ import {
     UilSunset,
 } from '@iconscout/react-unicons'
 
-function TemperatureAndDetails({ data, unit }) {
+function TemperatureAndDetails({ data, unit, detailed }) {
     return (
       <div className=''>
           <div className='flex items-center justify-center py-6 text-xl text-white'>
               <p>{data.description}</p>
           </div>
-          <div className='flex flex-col md:flex-row items-center justify-between text-white py-3'>
+          <div className='flex flex-col md:flex-row items-center text-white py-3'>
               <div className='w-full md:w-1/3 flex justify-center md:justify-start mb-10 md:mb-0'>
                 <img 
                     src={data.image} 
@@ -26,7 +26,7 @@ function TemperatureAndDetails({ data, unit }) {
               <div className='w-full md:w-1/3 flex justify-center md:justify-start mb-10 md:mb-0'>
                 <p className='text-5xl md:ml-8'>{Math.round(unit === 'metric' ? data.celsius : data.celsius * 9 / 5 + 32)}°</p>
               </div>
-              <div className='w-full md:w-1/3'>
+              {detailed && <div className='w-full md:w-1/3'>
               <div className='md:flex flex-col space-y-2'>
                   <div className='flex font-light text-sm items-center justify-center md:justify-end'>
                       <UilTemperature size={18} className='mr-1' />
@@ -44,7 +44,7 @@ function TemperatureAndDetails({ data, unit }) {
                       <span className='font-medium ml-1'>{Math.round(unit === 'metric' ? data.wind : data.wind * 0.621371)} {unit === 'metric' ? 'km/h' : 'mph'}</span>
                   </div>
               </div>
-              </div>
+              </div>}
           </div>
       </div>
     );

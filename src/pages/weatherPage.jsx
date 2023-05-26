@@ -77,7 +77,7 @@ const WeatherPage = () => {
         <div className='mx-auto max-w-xs md:max-w-screen-md mt-4 py-5 md:px-32 px-8 h-fit border rounded-xl mb-4'>
           <Inputs handleSubmit={handleSubmit} setName={setName} unit={unit} setUnit={setUnit} />
           {data && <TimeAndLocation data={data} />}
-          {data && <TemperatureAndDetails data={data} unit={unit} />}
+          {data && <TemperatureAndDetails data={data} unit={unit} detailed={true}/>}
           <Forecast />
           <Forecast />
         </div>
