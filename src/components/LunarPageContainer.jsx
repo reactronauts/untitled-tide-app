@@ -66,7 +66,7 @@ export function LunarPageContainer() {
 
 
     return (
-        <div className="h-5/6 w-5/6 rounded-2xl bg-light-blue text-dark-blue font-sans p-3 m-10 sm:p-8">
+        <div className="h-5/6 w-5/6 rounded-2xl bg-light-blue border border-white text-dark-blue font-sans p-3 m-10 sm:p-8">
             
             <div className="flex justify-center sm:justify-end">
                 <GetUserLocation /> 
