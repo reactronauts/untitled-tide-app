@@ -8,6 +8,8 @@ import clearImage from '../images/clear.png';
 import rainImage from '../images/rain.png';
 import drizzleImage from '../images/drizzle.png';
 import mistImage from '../images/mist.png';
+import { DateTime } from 'luxon';
+
 import.meta.env.VITE_LOCATION_API_KEY;
 
 const WeatherPage = () => {
@@ -50,6 +52,8 @@ const WeatherPage = () => {
             weatherDescription = 'Cloudy';
           }
 
+          const dateTime = response.data.timezone;
+
           return {
             celsius: response.data.main.temp,
             name: response.data.name,
@@ -57,6 +61,7 @@ const WeatherPage = () => {
             wind: response.data.wind.speed,
             image: imagePath,
             description: weatherDescription,
+            dateTime: dateTime,
           };
         });
 
@@ -69,6 +74,13 @@ const WeatherPage = () => {
     event.preventDefault();
     fetchWeatherData();
   };
+
+  const [dateTime, setDateTime] = useState('');
+
+  useEffect(() => {
+    const dt = DateTime.utc().toFormat('cccc, d LLLL yyyy | Local time: hh:mm a');
+    setDateTime(dt);
+  }, []);
 
   return (
     <div className='mx-auto max-w-screen-xl mt-4 p-5 bg-dark-blue rounded-xl'>
