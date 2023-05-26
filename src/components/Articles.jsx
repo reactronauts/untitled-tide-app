@@ -71,8 +71,12 @@ export function Article() {
         <div className="flex justify-center p-10">
         {AstronomyArticle && OceanArticle ? (
             <div className="flex space-x-10">
-            <ArticlePanel article={AstronomyArticle} />
-            <ArticlePanel article={OceanArticle} />
+              <div className="hover:scale-105 transition-transform duration-300">
+                <ArticlePanel article={AstronomyArticle} />
+              </div>
+              <div className="hover:scale-105 transition-transform duration-300">
+                <ArticlePanel article={OceanArticle} />
+              </div>
             </div>
         ) : (
             <p>Loading articles...</p>
