@@ -10,7 +10,7 @@ function Forecast({title}) {
     <div className=''>
         <div className='flex items-center justify-start mt-6'>
             <p className='text-white font-medium uppercase'>
-                Daily Forecast
+                Hourly Forecast
             </p>
         </div>
         <hr className='my-2' />

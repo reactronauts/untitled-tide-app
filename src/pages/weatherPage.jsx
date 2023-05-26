@@ -79,7 +79,6 @@ const WeatherPage = () => {
           {data && <TimeAndLocation data={data} />}
           {data && <TemperatureAndDetails data={data} unit={unit} detailed={true}/>}
           <Forecast />
-          <Forecast />
         </div>
       </div>
     );
