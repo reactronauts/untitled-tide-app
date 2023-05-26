@@ -16,7 +16,7 @@ function Forecast({title}) {
         <hr className='my-2' />
         <div className='flex flex-row items-center justify-between text-white'>
             <div className='flex flex-col items-center'>
-                <p className='font-light text-sm'>
+                <p className='font-light'>
                     4:30 PM
                 </p>
                 <img 
