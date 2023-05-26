@@ -19,7 +19,7 @@ const WeatherPage = () => {
   
   useEffect(() => {
     fetchWeatherData();
-  });
+  }, []);
 
   const fetchWeatherData = () => {
     const requests = cities.map(city =>
@@ -54,6 +54,7 @@ const WeatherPage = () => {
           }
 
           const dateTime = response.data.timezone;
+          // const dateTime = DateTime.utc(response.data.timezone).toFormat('cccc, d LLLL yyyy | Local time: hh:mm a');
 
           return {
             celsius: response.data.main.temp,
