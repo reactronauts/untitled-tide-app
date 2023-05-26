@@ -3,6 +3,7 @@ import axios from 'axios';
 import Inputs from '../components/Inputs';
 import TimeAndLocation from '../components/TimeAndLocation';
 import TemperatureAndDetails from '../components/TemperatureAndDetails';
+import Forecast from '../components/Forecast';
 import cloudyImage from '../images/cloudy.png';
 import clearImage from '../images/clear.png';
 import rainImage from '../images/rain.png';
@@ -19,7 +20,7 @@ const WeatherPage = () => {
     image: cloudyImage,
     description: 'Cloudy',
     feels: 8,
-    dateTime: 'Wednesday, 24 May 2023 | Local time: 10:00 AM'
+    dateTime: 'Friday, 25 May 2023 | 10:00 AM'
   })
 
   const [name, setName] = useState('');
@@ -72,12 +73,16 @@ const WeatherPage = () => {
   }
 
   return ( 
-    <div className='mx-auto max-w-screen-md mt-4 py-5 px-32 bg-custom-purple h-fit rounded-xl shadow-gray-400'>
-      <Inputs handleSubmit={handleSubmit} setName={setName} unit={unit} setUnit={setUnit} />
-      {data && <TimeAndLocation data={data} />}
-      {data && <TemperatureAndDetails data={data} unit={unit} />}
-    </div>
-  );
+      <div className="inset-0 bg-no-repeat bg-cover">
+        <div className='mx-auto max-w-xs md:max-w-screen-md mt-4 py-5 md:px-32 px-8 h-fit border rounded-xl mb-4'>
+          <Inputs handleSubmit={handleSubmit} setName={setName} unit={unit} setUnit={setUnit} />
+          {data && <TimeAndLocation data={data} />}
+          {data && <TemperatureAndDetails data={data} unit={unit} />}
+          <Forecast />
+          <Forecast />
+        </div>
+      </div>
+    );
 };
 
 export default WeatherPage;

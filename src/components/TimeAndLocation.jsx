@@ -7,7 +7,7 @@ function TimeAndLocation({ data }) {
     const dt = DateTime.utc().plus({ seconds: data.dateTime });
     const dateString = dt.toFormat('cccc, d LLLL yyyy');
     const timeString = dt.toFormat('hh:mm a');
-    dateAndTime = `${dateString} | Local time: ${timeString}`;
+    dateAndTime = `${dateString} | ${timeString}`;
   } else {
     dateAndTime = data.dateTime || 'Invalid timezone offset, try refreshing!';
   }
@@ -15,7 +15,7 @@ function TimeAndLocation({ data }) {
   return (
     <div className=''>
       <div className='flex items-center justify-center my-6'>
-        <p className='text-white text-xl font-extralight'>
+        <p className='text-white md:text-xl font-extralight md:block'>
           {dateAndTime}
         </p>
       </div>
