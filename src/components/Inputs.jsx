@@ -1,7 +1,7 @@
 import React from 'react';
 import { UilSearch, UilLocationPoint } from '@iconscout/react-unicons';
 
-function Inputs({ handleSubmit, setName, unit, setUnit }) {
+function Inputs({ handleSubmit, setName, setUnit }) {
   const handleUnitChange = (event) => {
     event.preventDefault();
     setUnit(event.target.name);

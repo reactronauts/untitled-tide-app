@@ -3,7 +3,6 @@ import axios from 'axios';
 import Inputs from '../components/Inputs';
 import TimeAndLocation from '../components/TimeAndLocation';
 import TemperatureAndDetails from '../components/TemperatureAndDetails';
-import Forecast from '../components/Forecast';
 import cloudyImage from '../images/cloudy.png';
 import clearImage from '../images/clear.png';
 import rainImage from '../images/rain.png';
@@ -20,7 +19,7 @@ const WeatherPage = () => {
     image: cloudyImage,
     description: 'Cloudy',
     feels: 8,
-    dateTime: 'Friday, 25 May 2023 | 10:00 AM'
+    dateTime: 'Friday, 25 May 2023 | 10:00 AM',
   })
 
   const [name, setName] = useState('');
@@ -60,7 +59,7 @@ const WeatherPage = () => {
             image: imagePath,
             description: weatherDescription,
             feels: res.data.main.feels_like,
-            dateTime: res.data.timezone
+            dateTime: res.data.timezone,
           })
         })
         .catch(err => console.log(err))
@@ -78,7 +77,6 @@ const WeatherPage = () => {
           <Inputs handleSubmit={handleSubmit} setName={setName} unit={unit} setUnit={setUnit} />
           {data && <TimeAndLocation data={data} />}
           {data && <TemperatureAndDetails data={data} unit={unit} detailed={true}/>}
-          <Forecast />
         </div>
       </div>
     );
