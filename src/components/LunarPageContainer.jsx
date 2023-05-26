@@ -69,30 +69,34 @@ export function LunarPageContainer() {
 
     return (
         <div className="h-5/6 w-5/6 rounded-2xl bg-light-blue text-dark-blue font-sans p-3 m-10 sm:p-8">
-            <GetUserLocation /> 
-
+            
+            <div className="flex justify-center sm:justify-end">
+                <GetUserLocation /> 
+            </div>
+            
             <HandleInputBar />
-
+            
+            
             <div>
                 <ul>
                 {planets &&
                         planets.map((planet) => (
                             <li key={planet.name}>
-                                {planet.name == 'Moon' && (planet.phase == fullMoon)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={fullMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Full Moon</p> : null}
-                                {planet.name == 'Moon' && (planet.phase > fullMoon && planet.phase < lastQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={waningGibbousMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Waning Gibbous</p> : null}
-                                {planet.name == 'Moon' && (planet.phase == lastQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={lastQuarterMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Last Quarter</p> : null}
-                                {planet.name == 'Moon' && (planet.phase > lastQuarter && planet.phase < newMoon)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={waningCrescentMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Waning Crescent</p> : null}
-                                {planet.name == 'Moon' && (planet.phase == newMoon)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={newMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: New Moon</p> : null}
-                                {planet.name == 'Moon' && (planet.phase > fullMoon && planet.phase < firstQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={waxingCrescentMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Waxing Crescent</p> : null}
-                                {planet.name == 'Moon' && (planet.phase == firstQuarter)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={firstQuarterMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: First Quarter</p> : null}
-                                {planet.name == 'Moon' && (planet.phase > firstQuarter && planet.phase < fullAgain)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={waxingGibbousMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Waxing Gibbous</p> : null}
-                                {planet.name == 'Moon' && (planet.phase == fullAgain)  ? <p className="text-white text-1xl sm:text-2xl text-center drop-shadow-lg pb-2"><img src={fullMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Full Moon</p> : null}
+                                {planet.name == 'Moon' && (planet.phase == fullMoon)  ? <p className="text-white text-1xl sm:text-3xl text-center drop-shadow-lg pb-2"><img src={fullMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Full Moon</p> : null}
+                                {planet.name == 'Moon' && (planet.phase > fullMoon && planet.phase < lastQuarter)  ? <p className="text-white text-1xl sm:text-3xl text-center drop-shadow-lg pb-2"><img src={waningGibbousMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Waning Gibbous</p> : null}
+                                {planet.name == 'Moon' && (planet.phase == lastQuarter)  ? <p className="text-white text-1xl sm:text-3xl text-center drop-shadow-lg pb-2"><img src={lastQuarterMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Last Quarter</p> : null}
+                                {planet.name == 'Moon' && (planet.phase > lastQuarter && planet.phase < newMoon)  ? <p className="text-white text-1xl sm:text-3xl text-center drop-shadow-lg pb-2"><img src={waningCrescentMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Waning Crescent</p> : null}
+                                {planet.name == 'Moon' && (planet.phase == newMoon)  ? <p className="text-white text-1xl sm:text-3xl text-center drop-shadow-lg pb-2"><img src={newMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: New Moon</p> : null}
+                                {planet.name == 'Moon' && (planet.phase > fullMoon && planet.phase < firstQuarter)  ? <p className="text-white text-1xl sm:text-3xl text-center drop-shadow-lg pb-2"><img src={waxingCrescentMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Waxing Crescent</p> : null}
+                                {planet.name == 'Moon' && (planet.phase == firstQuarter)  ? <p className="text-white text-1xl sm:text-3xl text-center drop-shadow-lg pb-2"><img src={firstQuarterMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: First Quarter</p> : null}
+                                {planet.name == 'Moon' && (planet.phase > firstQuarter && planet.phase < fullAgain)  ? <p className="text-white text-1xl sm:text-3xl text-center drop-shadow-lg pb-2"><img src={waxingGibbousMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Waxing Gibbous</p> : null}
+                                {planet.name == 'Moon' && (planet.phase == fullAgain)  ? <p className="text-white text-1xl sm:text-3xl text-center drop-shadow-lg pb-2"><img src={fullMoonImage} className="h-12 w-12 viewBox=0 0 24 24 mx-auto"/>Moon Phase: Full Moon</p> : null}
                             </li>))}
                 </ul>
             </div>
                 
             <div>
-                <h2 className="text-white text-2xl sm:text-3xl text-center drop-shadow-lg">Currently Visible in the Sky:</h2>
+                <h2 className="text-white text-2xl sm:text-2xl text-center drop-shadow-lg">Currently Visible in the Sky:</h2>
                 <ul className="sm:text-center">
                     {planets &&
                         planets.map((planet) => (
