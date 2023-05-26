@@ -1,12 +1,8 @@
 import React from 'react';
 import {
-    UilArrowUp,
-    UilArrowDown,
     UilTemperature,
     UilTear,
     UilWind,
-    UilSun,
-    UilSunset,
 } from '@iconscout/react-unicons'
 
 function TemperatureAndDetails({ data, unit, detailed }) {
@@ -50,7 +46,6 @@ function TemperatureAndDetails({ data, unit, detailed }) {
     );
   }
   
-
 export default TemperatureAndDetails;
 
 
