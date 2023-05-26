@@ -105,15 +105,19 @@ Additional Features:
 <!-- - Homepage map interactive location search and fetch feature: [Maps Javascript API](https://developers.google.com/maps/documentation/javascript) -->
 - Weather API for weather page:
 [Open-Meteo API](https://open-meteo.com/en/docs)
-- Astrological API for lunar page featuring astro events and observations: [DONKI API](https://ccmc.gsfc.nasa.gov/tools/DONKI/)
-- Astronomical sunrise/sunset API for lunar page: [Sunrise Sunset API](https://sunrise-sunset.org/api)
-- Lunar data API for lunar page: [Moon API](https://rapidapi.com/danylopashuk/api/moon-api1/)
+- Open Source astrological API for Lunar Page to get data about visible planets in the sky by location: [Visible Planets API](https://github.com/csymlstd/visible-planets-api#usage) © csymlstd 2022
 - Tidal data API for tidal page:
 [CO-OPS API by NOAA ](https://api.tidesandcurrents.noaa.gov/api/prod/)
 <!-- - Google Place Autocomplete Search for addresses (search bar on Homepage):
 [Google Place Autocomplete](https://developers.google.com/maps/documentation/javascript/place-autocomplete) -->
 - News API for homepage articles [NEWS API](https://newsapi.org/)
+- Open Source GeoCoding API to convert a location name to coordinates: [GeoCoding API](https://geocode.maps.co/) © Maps.co 2023
 
 #### Other Resources:
 - Concept for tidal data visualizer [Steamgraph transition example](https://observablehq.com/@d3/streamgraph-transitions)
-- FontAwesome for moonswell icon
+
+- Planet Icons © Iconika @ Font Awesome 
+    - [Planet Icon Pack](https://iconscout.com/icon-pack/planets-1)
+
+- Moon Phase Icons © Icons8
+    - [Moon Phase Icons](https://icons8.com/icons/set/moon-phases)
