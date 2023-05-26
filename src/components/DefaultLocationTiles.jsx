@@ -93,14 +93,14 @@ const WeatherPage = () => {
     }, []);
 
     return (
-        <div className="mx-auto mt-4 max-w-screen-xl rounded-xl bg-dark-blue p-5">
+        <div className="mx-auto mt-4 max-w-screen-xl rounded-xl bg-dark-blue p-5 ">
             {/* <Inputs handleSubmit={handleSubmit} /> */}
             {/* <div className="grid grid-cols-4 gap-6 pt-4 pb-2"> */}
             <div className="grid grid-cols-1 gap-6 pb-2 pt-4 lg:grid-cols-4">
                 {data.map((cityData, index) => (
                     <div
                         key={index}
-                        className="min-w-[250px] rounded-lg bg-orange p-4"
+                        className="min-w-[250px] rounded-lg bg-orange p-4 border-2"
                     >
                         <TimeAndLocation data={cityData} />
                         <div className="mt-4">
