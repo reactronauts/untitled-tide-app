@@ -32,36 +32,42 @@ function TidePage() {
     };
 
     return (
-        <main className="mx-6 my-2 flex flex-col items-stretch gap-5 text-center">
-            <h1>Your local tides</h1>
-            <div className=" grid w-full grid-cols-3 gap-5 self-center md:max-w-2xl">
+        <main className="mx-6 my-2 flex min-h-screen flex-col items-stretch gap-5 py-2 text-center">
+            <h1 className="py-2 text-2xl text-white sm:text-3xl">
+                Your local tides
+            </h1>
+            <div className="grid w-full max-w-[80%] grid-cols-2 gap-5 self-center sm:grid-cols-3">
                 {TIDE_STATES.map((state, index) => (
                     <button
                         key={index}
-                        className="flex flex-col items-center gap-2 rounded-lg bg-custom-purple p-2 transition ease-out hover:scale-110"
+                        className="flex flex-col items-center gap-2 rounded-lg bg-yellow p-2 transition ease-out hover:scale-110"
                         type="button"
                         onClick={handleClick}
                         data-tide-state={state}
                     >
                         <UilLocationPoint
                             size={37}
-                            className="cursor-pointer text-white"
+                            className="cursor-pointer text-light-blue"
                         />
                         <div>{state}</div>
                     </button>
                 ))}
             </div>
             {selectedState ? (
-                <h2>{STATE_NAMES[selectedState]}</h2>
+                <h2 className="py-2 text-xl text-white sm:text-2xl">
+                    {STATE_NAMES[selectedState]}
+                </h2>
             ) : (
-                <h2>Select a state</h2>
+                <h2 className="py-2 text-xl text-white sm:text-2xl">
+                    Select a state
+                </h2>
             )}
             {tideData.length ? (
-                <div className=" rounded-lg border-2">
+                <div className=" rounded-lg border-2 bg-slate-50">
                     <p className="my-1">Today&apos;s Tides</p>
                     <table className="w-full">
                         <thead>
-                            <tr className="bg-slate-50 font-bold">
+                            <tr className="bg-slate-200 font-bold">
                                 <th className="border border-l-0 border-slate-300">
                                     Type
                                 </th>
@@ -77,7 +83,15 @@ function TidePage() {
                             {tideData &&
                                 tideData[0].tides.map((tide, index) => {
                                     return (
-                                        <tr key={index}>
+                                        <tr
+                                            key={index}
+                                            className={
+                                                tide.rowType.toLowerCase() ===
+                                                "low"
+                                                    ? "bg-custom-purple"
+                                                    : "bg-slate-200"
+                                            }
+                                        >
                                             <td>{tide.rowType}</td>
                                             <td>
                                                 {new Date(
