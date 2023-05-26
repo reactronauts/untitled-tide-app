@@ -3,12 +3,14 @@ import axios from 'axios';
 import Inputs from '../components/Inputs';
 import TimeAndLocation from '../components/TimeAndLocation';
 import TemperatureAndDetails from '../components/TemperatureAndDetails';
+import Forecast from '../components/Forecast';
 import cloudyImage from '../images/cloudy.png';
 import clearImage from '../images/clear.png';
 import rainImage from '../images/rain.png';
 import drizzleImage from '../images/drizzle.png';
 import mistImage from '../images/mist.png';
 import. meta.env.VITE_LOCATION_API_KEY
+import weatherBackground from '../images/weather-background.jpeg'; 
 
 const WeatherPage = () => {
   const [data, setData] = useState({
@@ -72,12 +74,16 @@ const WeatherPage = () => {
   }
 
   return ( 
-    <div className='mx-auto max-w-screen-md mt-4 py-5 px-32 bg-custom-purple h-fit rounded-xl shadow-gray-400'>
-      <Inputs handleSubmit={handleSubmit} setName={setName} unit={unit} setUnit={setUnit} />
-      {data && <TimeAndLocation data={data} />}
-      {data && <TemperatureAndDetails data={data} unit={unit} />}
-    </div>
-  );
+      <div className="fixed inset-0 bg-no-repeat bg-cover" style={{ backgroundImage: `url(${weatherBackground})`, zIndex: -1 }}>
+        <div className='mx-auto max-w-xs md:max-w-screen-md mt-4 py-5 md:px-32 px-8 bg-gradient-to-r from-custom-weather-1 to-custom-weather-2 h-fit rounded-xl shadow-xl'>
+          <Inputs handleSubmit={handleSubmit} setName={setName} unit={unit} setUnit={setUnit} />
+          {data && <TimeAndLocation data={data} />}
+          {data && <TemperatureAndDetails data={data} unit={unit} />}
+          {/* <Forecast />
+          <Forecast /> */}
+        </div>
+      </div>
+    );
 };
 
 export default WeatherPage;

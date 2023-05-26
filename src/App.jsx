@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import WeatherPage from './pages/WeatherPage';
+import WeatherPage from './pages/weatherPage';
 
 function App() {
     return (
