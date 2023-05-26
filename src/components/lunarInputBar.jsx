@@ -19,7 +19,7 @@ export default function HandleInputBar() {
             })
             .then((data) => {
                 setSearchLocationCoords({latitude: data[0].lat, longitude: data[0].lon})
-                contextLocation.updateLocation(searchLocationCoords)
+                contextLocation.updateLocation({latitude: data[0].lat, longitude: data[0].lon})
             })
             .catch((error) => {
                 console.log("Fetch failed!" + error);
