@@ -102,12 +102,15 @@ Additional Features:
 ## Sources 
 
 #### APIs:
-- Homepage map interactive location search and fetch feature: [Google Maps API](https://developers.google.com/maps/documentation/javascript)
+<!-- - Homepage map interactive location search and fetch feature: [Maps Javascript API](https://developers.google.com/maps/documentation/javascript) -->
 - Weather API for weather page:
 [Open-Meteo API](https://open-meteo.com/en/docs)
 - Open Source astrological API for Lunar Page to get data about visible planets in the sky by location: [Visible Planets API](https://github.com/csymlstd/visible-planets-api#usage) © csymlstd 2022
 - Tidal data API for tidal page:
 [CO-OPS API by NOAA ](https://api.tidesandcurrents.noaa.gov/api/prod/)
+<!-- - Google Place Autocomplete Search for addresses (search bar on Homepage):
+[Google Place Autocomplete](https://developers.google.com/maps/documentation/javascript/place-autocomplete) -->
+- News API for homepage articles [NEWS API](https://newsapi.org/)
 - Open Source GeoCoding API to convert a location name to coordinates: [GeoCoding API](https://geocode.maps.co/) © Maps.co 2023
 
 #### Other Resources:
