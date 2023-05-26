@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Inputs from '../components/Inputs';
+// below import used for searchbar component (commented out)
+// import Inputs from '../components/Inputs';
 import TemperatureAndDetails from '../components/TemperatureAndDetails';
 import TimeAndLocation from './TimeAndLocation';
 import cloudyImage from '../images/cloudy.png';
@@ -71,10 +72,11 @@ const WeatherPage = () => {
       .catch(err => console.log(err));
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    fetchWeatherData();
-  };
+  // for searchbar component
+  // const handleSubmit = event => {
+  //   event.preventDefault();
+  //   fetchWeatherData();
+  // };
 
   const [dateTime, setDateTime] = useState('');
 
