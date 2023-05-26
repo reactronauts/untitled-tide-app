@@ -6,7 +6,6 @@ import { GeolocationContext } from "./GeolocationContextComponent";
 export default function HandleInputBar() {
     const [searchLocationName, setSearchLocationName] = useState('')
 
-    const [searchLocationCoords, setSearchLocationCoords] = useState('')
 
     let contextLocation = useContext(GeolocationContext)
 
