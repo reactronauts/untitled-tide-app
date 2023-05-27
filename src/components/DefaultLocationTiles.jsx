@@ -11,7 +11,6 @@ import drizzleImage from "../images/drizzle.png";
 import mistImage from "../images/mist.png";
 import { DateTime } from "luxon";
 
-import.meta.env.VITE_LOCATION_API_KEY;
 
 const WeatherPage = () => {
     const [data, setData] = useState([]);
@@ -22,13 +21,10 @@ const WeatherPage = () => {
     }, []);
 
     const fetchWeatherData = () => {
-        const requests = cities.map((city) =>
-            axios.get(
-                `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${
-                    import.meta.env.VITE_LOCATION_API_KEY
-                }&units=metric`
-            )
-        );
+        const requests = cities.map((city) => {
+            const apiUrl = `/.netlify/functions/getWeather?name=${city}`;
+            return axios.get(apiUrl);
+        });
 
         Promise.all(requests)
             .then((responses) => {
@@ -100,7 +96,7 @@ const WeatherPage = () => {
                 {data.map((cityData, index) => (
                     <div
                         key={index}
-                        className="min-w-[250px] rounded-lg bg-orange p-4 border-2"
+                        className="min-w-[250px] rounded-lg border-2 bg-orange p-4"
                     >
                         <TimeAndLocation data={cityData} />
                         <div className="mt-4">

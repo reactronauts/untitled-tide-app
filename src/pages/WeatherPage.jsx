@@ -8,7 +8,6 @@ import clearImage from '../images/clear.png';
 import rainImage from '../images/rain.png';
 import drizzleImage from '../images/drizzle.png';
 import mistImage from '../images/mist.png';
-import. meta.env.VITE_LOCATION_API_KEY
 
 const WeatherPage = () => {
   const [data, setData] = useState({
@@ -27,7 +26,7 @@ const WeatherPage = () => {
 
   const handleClick = () => {
     if(name !== "") {
-      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${import.meta.env.VITE_LOCATION_API_KEY}&units=${unit}`;
+      const apiUrl = `/.netlify/functions/getWeather?name=${name}`;
       axios.get(apiUrl)
         .then(res => {
           let imagePath = '';
@@ -72,7 +71,7 @@ const WeatherPage = () => {
   }
 
   return ( 
-      <div className="inset-0 bg-no-repeat bg-cover">
+      <div className="inset-0 bg-no-repeat bg-cover h-screen">
         <div className='mx-auto max-w-xs md:max-w-screen-md mt-4 py-5 md:px-32 px-8 h-fit border rounded-xl mb-4'>
           <Inputs handleSubmit={handleSubmit} setName={setName} unit={unit} setUnit={setUnit} />
           {data && <TimeAndLocation data={data} />}
