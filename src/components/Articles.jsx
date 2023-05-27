@@ -68,19 +68,20 @@ export function Article() {
   }
 
     return (
-        <div className="flex justify-center p-10">
+      <div className="flex justify-center p-10">
         {AstronomyArticle && OceanArticle ? (
-            <div className="flex space-x-10">
-            <ArticlePanel article={AstronomyArticle} />
-            <ArticlePanel article={OceanArticle} />
+          <div className="flex flex-col md:flex-row md:justify-center md:space-x-10">
+            <div className="hover:scale-105 transition-transform duration-300 flex-1 mb-4 md:mb-0">
+              <ArticlePanel article={AstronomyArticle} />
             </div>
+            <div className="hover:scale-105 transition-transform duration-300 flex-1">
+              <ArticlePanel article={OceanArticle} />
+            </div>
+          </div>
         ) : (
-            <p>Loading articles...</p>
+          <p>Loading articles...</p>
         )}
-        </div>
+      </div>
     );
-    
+  
 }
-
-
-
