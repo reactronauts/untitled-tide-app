@@ -8,7 +8,6 @@ import clearImage from '../images/clear.png';
 import rainImage from '../images/rain.png';
 import drizzleImage from '../images/drizzle.png';
 import mistImage from '../images/mist.png';
-import. meta.env.VITE_LOCATION_API_KEY
 
 const WeatherPage = () => {
   const [data, setData] = useState({

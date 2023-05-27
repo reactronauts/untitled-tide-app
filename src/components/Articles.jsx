@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import.meta.env.VITE_ASTRO_ARTICLES_API_KEY;
 
 export function ArticlePanel({ article }) {
     return (
